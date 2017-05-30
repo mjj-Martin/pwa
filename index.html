@@ -1,4 +1,30 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title>Todo</title><link rel=icon type=image/png sizes=32x32 href=https://mjj-martin.github.io/pwa/static/img/icons/todo_list.png><link rel=manifest href=https://mjj-martin.github.io/pwa/static/manifest.json><meta name=theme-color content=#ffffff><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=white><meta name=apple-mobile-web-app-title content=Todo><link rel=apple-touch-icon href=https://mjj-martin.github.io/pwa/static/img/icons/todo_list.png><meta name=msapplication-TileImage content=https://mjj-martin.github.io/pwa/static/img/icons/todo_list.png><meta name=msapplication-TileColor content=#ffffff><link rel=preload href=https://mjj-martin.github.io/pwa/static/js/vendor.b5c1ba3ea1ce6e550d20.js as=script><link rel=preload href=https://mjj-martin.github.io/pwa/static/js/app.e004806aec4042ee8e2f.js as=script><link rel=preload href=https://mjj-martin.github.io/pwa/static/css/app.12f0738c7f444c5bfb46a8cb4dcfd4d1.css as=style><link rel=preload href=https://mjj-martin.github.io/pwa/static/js/manifest.a08244e43678093cb4a6.js as=script><meta name=viewport content="width=device-width,maximum-scale=1,minimum-scale=1,user-scalable=no"><script type=text/javascript>(function() {
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.options.assetsPath %>static/img/icons/todo_list.png">
+    <link rel="manifest" href="<%= htmlWebpackPlugin.options.assetsPath %>static/manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="apple-mobile-web-app-title" content="Todo">
+    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.options.assetsPath %>static/img/icons/todo_list.png">
+    <!-- Add to home screen for Windows -->
+    <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.options.assetsPath %>static/img/icons/todo_list.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <% for (var chunk of webpack.chunks) {
+        for (var file of chunk.files) {
+          if (file.match(/\.(js|css)$/)) { %>
+        <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>">
+    <% }}} %>
+            <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+            <script type="text/javascript">
+            (function() {
                 var docEl = document.documentElement;
                 var width = document.documentElement.clientWidth || document.body.clientWidth;
                 width = width > 640 ? 640 : width
@@ -24,7 +50,14 @@
                     document.removeEventListener('DOMContentLoaded', repairFontSize);
                 }
                 document.addEventListener('DOMContentLoaded', repairFontSize);
-            }());</script><link href=https://mjj-martin.github.io/pwa/static/css/app.12f0738c7f444c5bfb46a8cb4dcfd4d1.css rel=stylesheet></head><body><div id=app>This is your fallback content in case JavaScript fails to load.</div><script>(function() {
+            }());
+            </script>
+</head>
+
+<body>
+    <div id="app">This is your fallback content in case JavaScript fails to load.</div>
+    <script>
+    (function() {
         'use strict';
         var isLocalhost = Boolean(window.location.hostname === 'localhost' ||
             window.location.hostname === '[::1]' ||
@@ -61,4 +94,9 @@
                     });
             }
         });
-    })();</script><script type=text/javascript src=https://mjj-martin.github.io/pwa/static/js/manifest.a08244e43678093cb4a6.js></script><script type=text/javascript src=https://mjj-martin.github.io/pwa/static/js/vendor.b5c1ba3ea1ce6e550d20.js></script><script type=text/javascript src=https://mjj-martin.github.io/pwa/static/js/app.e004806aec4042ee8e2f.js></script></body></html>
+    })();
+    </script>
+    <!-- built files will be auto injected -->
+</body>
+
+</html>
