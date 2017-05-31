@@ -1,30 +1,92 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title>Todo</title><link rel=icon type=image/png sizes=32x32 href=https://mjj-martin.github.io/pwa/dist/static/img/icons/todo_list.png><link rel=manifest href=https://mjj-martin.github.io/pwa/dist/static/manifest.json><meta name=theme-color content=#ffffff><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=white><meta name=apple-mobile-web-app-title content=Todo><link rel=apple-touch-icon href=https://mjj-martin.github.io/pwa/dist/static/img/icons/todo_list.png><meta name=msapplication-TileImage content=https://mjj-martin.github.io/pwa/dist/static/img/icons/todo_list.png><meta name=msapplication-TileColor content=#ffffff><link rel=preload href=https://mjj-martin.github.io/pwa/dist/static/js/vendor.b5c1ba3ea1ce6e550d20.js as=script><link rel=preload href=https://mjj-martin.github.io/pwa/dist/static/js/app.250c7edb6c491a9fa4fa.js as=script><link rel=preload href=https://mjj-martin.github.io/pwa/dist/static/css/app.12f0738c7f444c5bfb46a8cb4dcfd4d1.css as=style><link rel=preload href=https://mjj-martin.github.io/pwa/dist/static/js/manifest.dd68f86f2b98f18be6b8.js as=script><meta name=viewport content="width=device-width,maximum-scale=1,minimum-scale=1,user-scalable=no"><script type=text/javascript>(function() {
-                var docEl = document.documentElement;
-                var width = document.documentElement.clientWidth || document.body.clientWidth;
-                width = width > 640 ? 640 : width
-                var rem = width / 10;
-                docEl.style.fontSize = rem + 'px';
+<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title>Todo</title><link rel=icon type=image/png sizes=32x32 href=https://mjj-martin.github.io/pwa/dist/static/img/icons/todo_list.png><link rel=manifest href=https://mjj-martin.github.io/pwa/dist/static/manifest.json><meta name=theme-color content=#ffffff><meta name=apple-mobile-web-app-capable content=yes><meta name=apple-mobile-web-app-status-bar-style content=white><meta name=apple-mobile-web-app-title content=Todo><link rel=apple-touch-icon href=https://mjj-martin.github.io/pwa/dist/static/img/icons/todo_list_ios.png><meta name=msapplication-TileImage content=https://mjj-martin.github.io/pwa/dist/static/img/icons/todo_list.png><meta name=msapplication-TileColor content=#ffffff><link rel=preload href=https://mjj-martin.github.io/pwa/dist/static/js/vendor.46fc02dbb60c798ea870.js as=script><link rel=preload href=https://mjj-martin.github.io/pwa/dist/static/js/app.3951dfd74b1a16a0d10c.js as=script><link rel=preload href=https://mjj-martin.github.io/pwa/dist/static/css/app.801c5986fb064e033c49beb232fe5fa9.css as=style><link rel=preload href=https://mjj-martin.github.io/pwa/dist/static/js/manifest.f149919934846c765660.js as=script><meta name=viewport content="width=device-width,maximum-scale=1,minimum-scale=1,user-scalable=no"><script type=text/javascript>(function() {
+          var docEl = document.documentElement;
+          var width = document.documentElement.clientWidth || document.body.clientWidth;
+          width = width > 640 ? 640 : width
+          var rem = width / 10;
+          docEl.style.fontSize = rem + 'px';
 
-                function repairFontSize() {
-                    var testDiv = document.createElement('div');
+          function repairFontSize() {
+              var testDiv = document.createElement('div');
 
-                    testDiv.style.width = '10rem';
-                    testDiv.style.position = 'absolute';
-                    testDiv.style.left = '0';
-                    testDiv.style.right = '0';
-                    testDiv.style.visibility = 'hidden';
-                    testDiv.style.zIndex = '10';
-                    document.body.appendChild(testDiv);
-                    var rect = testDiv.getBoundingClientRect();
-                    var scaleRatio = rect.width / width;
-                    if (scaleRatio !== 1) {
-                        docEl.style.fontSize = rem / scaleRatio + 'px';
-                    }
-                    document.body.removeChild(testDiv);
-                    document.removeEventListener('DOMContentLoaded', repairFontSize);
-                }
-                document.addEventListener('DOMContentLoaded', repairFontSize);
-            }());</script><link href=https://mjj-martin.github.io/pwa/dist/static/css/app.12f0738c7f444c5bfb46a8cb4dcfd4d1.css rel=stylesheet></head><body><div id=app>This is your fallback content in case JavaScript fails to load.</div><script>(function() {
+              testDiv.style.width = '10rem';
+              testDiv.style.position = 'absolute';
+              testDiv.style.left = '0';
+              testDiv.style.right = '0';
+              testDiv.style.visibility = 'hidden';
+              testDiv.style.zIndex = '10';
+              document.body.appendChild(testDiv);
+              var rect = testDiv.getBoundingClientRect();
+              var scaleRatio = rect.width / width;
+              if (scaleRatio !== 1) {
+                  docEl.style.fontSize = rem / scaleRatio + 'px';
+              }
+              document.body.removeChild(testDiv);
+              document.removeEventListener('DOMContentLoaded', repairFontSize);
+          }
+          document.addEventListener('DOMContentLoaded', repairFontSize);
+      }());</script><style>.loader {
+        position: relative;
+        width: 2.5em;
+        height: 2.5em;
+        transform: rotate(165deg);
+      }
+      .loader:before, .loader:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 0.5em;
+        height: 0.5em;
+        border-radius: 0.25em;
+        transform: translate(-50%, -50%);
+      }
+      .loader:before {
+        animation: before 2s infinite;
+      }
+      .loader:after {
+        animation: after 2s infinite;
+      }
+
+      @keyframes before {
+        0% {
+          width: 0.5em;
+          box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+        }
+        35% {
+          width: 2.5em;
+          box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+        }
+        70% {
+          width: 0.5em;
+          box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+        }
+        100% {
+          box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+        }
+      }
+      @keyframes after {
+        0% {
+          height: 0.5em;
+          box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+        }
+        35% {
+          height: 2.5em;
+          box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+        }
+        70% {
+          height: 0.5em;
+          box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+        }
+        100% {
+          box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+        }
+      }
+      .loader {
+        position: absolute;
+        top: calc(50% - 1.25em);
+        left: calc(50% - 1.25em);
+      }</style><link href=https://mjj-martin.github.io/pwa/dist/static/css/app.801c5986fb064e033c49beb232fe5fa9.css rel=stylesheet></head><body><div id=app><div class=loader></div></div><script>(function() {
         'use strict';
         var isLocalhost = Boolean(window.location.hostname === 'localhost' ||
             window.location.hostname === '[::1]' ||
@@ -32,33 +94,14 @@
                 /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
             )
         );
-
         window.addEventListener('load', function() {
             if ('serviceWorker' in navigator &&
                 (window.location.protocol === 'https:' || isLocalhost)) {
                 navigator.serviceWorker.register('service-worker.js')
                     .then(function(registration) {
-                        // registration.onupdatefound = function() {
-                        //     if (navigator.serviceWorker.controller) {
-                        //         var installingWorker = registration.installing;
-                        //         installingWorker.onstatechange = function() {
-                        //             switch (installingWorker.state) {
-                        //                 case 'installed':
-                        //                     break;
-
-                        //                 case 'redundant':
-                        //                     throw new Error('The installing ' +
-                        //                         'service worker became redundant.');
-
-                        //                 default:
-                        //                     // Ignore
-                        //             }
-                        //         };
-                        //     }
-                        // };
                     }).catch(function(e) {
                         console.error('Error during service worker registration:', e);
                     });
             }
         });
-    })();</script><script type=text/javascript src=https://mjj-martin.github.io/pwa/dist/static/js/manifest.dd68f86f2b98f18be6b8.js></script><script type=text/javascript src=https://mjj-martin.github.io/pwa/dist/static/js/vendor.b5c1ba3ea1ce6e550d20.js></script><script type=text/javascript src=https://mjj-martin.github.io/pwa/dist/static/js/app.250c7edb6c491a9fa4fa.js></script></body></html>
+    })();</script><script type=text/javascript src=https://mjj-martin.github.io/pwa/dist/static/js/manifest.f149919934846c765660.js></script><script type=text/javascript src=https://mjj-martin.github.io/pwa/dist/static/js/vendor.46fc02dbb60c798ea870.js></script><script type=text/javascript src=https://mjj-martin.github.io/pwa/dist/static/js/app.3951dfd74b1a16a0d10c.js></script></body></html>
