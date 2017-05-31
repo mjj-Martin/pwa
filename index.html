@@ -13,10 +13,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
     <meta name="apple-mobile-web-app-title" content="Todo">
-    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.options.assetsPath %>static/img/icons/todo_list.png">
+    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.options.assetsPath %>static/img/icons/todo_list_ios.png">
     <!-- Add to home screen for Windows -->
     <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.options.assetsPath %>static/img/icons/todo_list.png">
     <meta name="msapplication-TileColor" content="#ffffff">
+
     <% for (var chunk of webpack.chunks) {
         for (var file of chunk.files) {
           if (file.match(/\.(js|css)$/)) { %>
