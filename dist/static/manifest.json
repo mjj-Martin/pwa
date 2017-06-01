@@ -3,18 +3,18 @@
   "short_name": "Todo",
   "icons": [
     {
-      "src": "https://mjj-martin.github.io/pwa/dist/static/img/icons/todo_list.png",
+      "src": "https://mjj-martin.github.io/pwa/dist/static/img/icons/todo_list_ios.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://mjj-martin.github.io/pwa/dist/static/img/icons/todo_list.png",
+      "src": "https://mjj-martin.github.io/pwa/dist/static/img/icons/todo_list_ios.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "start_url": "https://mjj-martin.github.io/pwa/dist/index.html",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "orientation": "portrait"

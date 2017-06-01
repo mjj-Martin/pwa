@@ -18,6 +18,8 @@
     <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.options.assetsPath %>static/img/icons/todo_list.png">
     <meta name="msapplication-TileColor" content="#ffffff">
 
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="email=no" name="format-detection" />
     <% for (var chunk of webpack.chunks) {
         for (var file of chunk.files) {
           if (file.match(/\.(js|css)$/)) { %>
