@@ -3,7 +3,6 @@
     <div class="input_panel_wrap" v-if='panelShow' @click='clickMask'>
       <div class="input_panel_main">
         <form action='' class="input_panel--input" @submit.prevent='submit' @touchstart='focus'>
-            <input type="input" style="display:none" autocomplete="off">
             <input class='input' id="submit" type="text" autocomplete="off" placeholder="我想..."
               v-model='content'
             >
